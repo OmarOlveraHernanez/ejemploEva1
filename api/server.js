@@ -1,11 +1,11 @@
 const express = require("express");
-const router = express.Router();
+const router = express.Router(); /*se declara la ruta dque va a  llamar*/
 
 
-class Server{
+class Server{ /* server es una clase en la que se coloca el metodo para inicializar una instancia de un objeto de esa clase*/
   constructor(){
     
-    this._express = express();
+    this._express = express(); 
     // Home page route.
    router.get( "/user", function (req, res) { res.send("traer informacion del usuario ");});
     router.post("/user", function (req, res) {
@@ -16,9 +16,10 @@ class Server{
     });
     router.delete("/user", function (req, res) {
       res.send("delete usuario ");
-    });giy
+    });
     this._express.use(router);
   }
+
   start(){
     return new Promise( (resolve, reject) => {
       const http = this._express.listen(3000,() => {
